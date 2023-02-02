@@ -113,3 +113,39 @@ Found at index 3
 
 // Time Complexity is O(logn)
 // Space Complexity is O(1)
+
+
+/**
+Iterative approach to Binary Search
+
+A Iterative binary search function. It returns the location of x in given array[1...r] if present, otherwise return -1.
+ */
+function binarySearch3(arr, x)
+{
+let start = 0;
+let r = arr.length - 1;
+let mid;
+    while (r > start) {
+        mid = start + Math.floor((r - 1) / 2);
+        // if the element is present at the mid itself.
+        if (arr[mid] == x) 
+            // console.log("Element located at index: " + mid);
+            return mid;
+        // If the element is smaller than mid, then it can only be present on the right subarray.
+        if (arr[mid] > x)
+            r = mid - 1;
+        // Else the element is present on the right subarray.
+        else
+            start = mid + 1
+    }
+    // We hit here if the element is not present in the array.
+    return -1;
+}
+
+arr = new Array(1, 2, 3, 4, 50);
+x = 4;
+n = arr.length;
+result = binarySearch3(arr, x);
+
+(result == -1) ? document.write("Element is not present in the array")
+    : document.write("Element is found at index: " + result);
