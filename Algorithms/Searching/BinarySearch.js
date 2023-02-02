@@ -149,3 +149,71 @@ result = binarySearch3(arr, x);
 
 (result == -1) ? document.write("Element is not present in the array")
     : document.write("Element is found at index: " + result);
+
+/**
+Advantages of Binary Search:
+
+1. Binary search is faster than linear search, especially for larger arrays. As the size of the array increases, the time to perform a linear seach increases linearly, while the time it takes to perform a binary search increases logarithmically.
+
+2. " " is more efficient than other searching algorithms that have a similar time complexity, such as interpolation search or exponential search 
+
+3. " " is relatively simple to implement and easy to understand, making it a good choice for many applications. 
+
+4. " " can be used on both sorted arrays and sorted linked lists, making it a flexible algorithm.
+
+5. " " is well-suited for searching large datasets that are stored in external memory, such as on hard drive or in the cloud.
+
+6. " " can be used as a building block for more complex algorithms, such as those used in computer graphics and machine learning.
+
+ */
+
+/**
+Drawbacks of Binary Search: 
+
+1. We require the array to be sorted. If the array is not sorted, we must first sort it before performing the search. This adds an additional O(n log n ) time complexity for the sorting step, which can make binary search less efficient for very small arrays.
+
+2. " " requires that the array being searched in contiguous memory locations. This could be a problem if the array is too large to fit in memory, or if the array is stored on external memory such as a hardrive or in the cloud.
+
+3. " " requires that the elements of the array be comparable, meaning that they must be able to be ordered. This can be a probem if the elements of the array are not naturally ordered, or if the ordering is not well defined. 
+
+4. " " can be less efficient than other algorithms, such as hash tables, for searching very large datasets that do not fit in memory.
+
+ */
+
+/**
+Applications of Binary Search 
+
+1. Searching in machine learning. " " can be used as a building block for more complex algorithms used in machine learning. Such as algorithms for training neural networks or finding the optimal hyperparameters for a model.
+
+2. Commonly used in Competitive Programming,
+
+3. Can be used for searching in computer graphics. " " can be used as a building block for more complex algorithms used in computer graphics, such as algorithms for ray tracing or texture mapping. 
+
+4. Can be used for searching a database, " " can be used to efficiently seach as database of records, such as a customer database, or a product catalog.
+
+*/
+
+/**
+When to use Binary Search 
+
+1. When searching a large daatabase as it has a time complexity of O(n logn).
+
+2. When the dataset is sorted.
+
+3. When data is stored in contiguous memory
+
+4. Data does not have a complex structure or relationships.
+
+
+ */
+
+/**
+Summary
+1. " " is an efficient algorithm for finding an element within a sorted array.
+
+2. Time complexity O(n logn). 
+
+3. One if the draw backs if " " is that the array must be sorted. 
+
+4. Useful algorithm for building more complex algorithms in machine learning and computer graphics.
+ */
