@@ -67,3 +67,49 @@ let result = binarySearch(arr, 0, n - 1, x);
 // Time Complexity is O(logn)
 // Space Complexity is O(logn)
 
+/**
+Another Iterative Approach to Binary Search.
+ */
+function binarySearch2(v, To_Find)
+{
+    let low = 0;
+    let high = v.length - 1;
+    let mid;
+    // This checks covers all cases, so need to check for mid = lo - (high - low)/2
+    while (high - low > 1) {
+        let mid = (high + low) / 2;
+        if (v[mid] < To_Find) {
+            lo = mid + 1;
+        }
+        else {
+            high = mid;
+        }
+    }    
+    if (v[low] == To_Find)
+    {
+        console.log("Found at index: " + low);
+    } else if (v[hi] == To_Find){
+        console.log("Found at index: " + high);
+    }
+    else {
+        console.log("Not Found");
+    }
+}
+
+v = [1, 2, 3, 5, 7, 8];
+let To_Find = 1;
+binarySearch2(v, To_Find);
+To_Find = 7;
+binarySearch2(v, To_Find);
+To_Find = 5
+binarySearch2(v, To_Find);
+
+/**
+Output
+Found at index 0
+Found at index 4
+Found at index 3
+ */
+
+// Time Complexity is O(logn)
+// Space Complexity is O(1)
