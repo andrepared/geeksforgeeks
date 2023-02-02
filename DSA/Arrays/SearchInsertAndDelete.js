@@ -36,3 +36,8 @@ else
     document.write("Element found at position: "
         + (position + 1));
 
+/**
+Time Complexity O(n)
+Space Complexity O(1)
+
+ */
