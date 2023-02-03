@@ -29,33 +29,37 @@ Dead code is just as bad as duplicate code. There's no reason to keep it in your
  */
 
 /**
-Make objects have private members 
-This can be done with closures.
+Prefer ES2015/ES6
+it's very difficult to get readable class inheritance, construction, and method definitions for classical ES5 classes. If you need inheritance (and be aware that you might not), then prefer ES2015/ES5 classes. However, prefer small functions over classes until you find yourself needing larger and more complex objects.
  */
 
-const Employee = function (name) {
-    this.name = name;
+class Animal {
+    constructor(age){
+    this.age = age;
+    }
+
+    move() {
+    //...
+    }
 };
-Employee.prototype.getName = function getName () {
-    return this.name;
+
+class mammal extends Animal {
+    constructor(age, furColor) {
+    super(age);
+    this.color = furColor;
+    }
+
+    liveBirth() {
+    //...
+    }
 };
+class Human extends Mammal {
+    constructor(age, furColor, languageSpoken) {
+    super(age, furColor);
+    this.languageSpoken = languageSpoken;
+    }
 
-const employee = new Employee("John Doe");
-console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe.
-delete employee.name;
-console.log(`Employee name: ${employee.getName()}`); // Employee name undefined.
-
-
-// Good
-
-function makeEmployee (name) {
-    return {
-    getName() {
-        return name;
-        }
-    };
-}
-const employee = makeEmployee("John Doe");
-console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe.
-delete employee.name;
-console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe.
+    speak() {
+        // ...
+    }
+};
