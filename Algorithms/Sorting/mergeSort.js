@@ -17,24 +17,13 @@ The key process in quickSort is a partition(). The traget of partitions is, give
  */
 
 
+// Don't write to global functions 
 /**
-A function produces a side effect if it does anything other than take a value and return another value or values. A side effect could be writing a file, modifying a global variable, or accidentally wiring all your money to a stranger.
-
-Now, you do need to have sided effects in a program on occasion. Like the previous example, you might need to write a file. What you want to do is to centralize where you are doing this. Don't have several functions and classes that write to a particular file. Have one service that does it.
-
-The main point is to avoid common pitfalls like sharing state between objects without any structure, using mitable data types that can be written to anything, and not centralizing where your side effects occur. If you can do this, you will be happier 
- */
-// Avoid side effects Pt.1 
-/**
-    In JS some values are unchangeable(inmmutable) and some are changeable(mutable). Objects and arrays are two kinds of mutable values so it's important to handle them carefully when they're passed as parameters to a function. A JS function can change a object's properties or alter the contents of an array which could easily cause bugs elsewhere.
-
-    Suppose there's a function that accepts an array parameter representing a shopping cart. If the function makes a change that shopping cart array - by adding an item to purchase, for example - then any other function that uses that same cart array will be affected by this addition. That may be great, however, it could also be bad. Let's imagine a bad situation :
-
-    1. There might be cases where you actually want to modify the input object, but when you adopt this programming practice you will find that those cases are pretty rare. Most things can be refactored to have no side effects!
-
-    2. Cloning big objects can be very expensive in terms of perfomance. Luckily, this isn't a big issue in practice bc there are great libraries that allow this kind of programming approah to be fast and not as memory intensive as it woulf be for you to manually clone objects and arrays.
+    Polluting globals is bad practice in JS because you could clash with another library and the usser of your API would be none-the-wiser until they get an exception in production. Let's think about an example, what if you wanted to extend JS's native Array method to have a diff method that could show the difference between two arrays? You could write your new function to the Array.prototype, but it could clash with another library that tried to do the same thing. What if the other library was just using diff to find the difference between the first and last elements of an array? This is why it would be better to just use the ES2015/ES6 classes and simply extend Array gloabl.
  */
 
-const addItemToCart = (cart, item) => {
-    return [...cart, { item, date: Date.now()}];
+Array.prototype.diff = function diff(comparisonArray){
+    const hash = new Set(comparisonArray);
+    return this.filter(ele => !hash.has(ele));
 };
+// Do NOT do this!!!!!
