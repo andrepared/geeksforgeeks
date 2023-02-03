@@ -16,21 +16,26 @@ The key process in quickSort is a partition(). The traget of partitions is, give
 
  */
 
-function emailClients(clients){
-    clients.forEach(client => {
-    const clientRecord = database.lookup(client);
-    if(clientRecord.isActive()) {
+function showEmployeeList(employees)
+{
+    employees.forEach(employee => {
+    const expectedSalary = employee.calculateExpectedSalary(); 
+    const experience = employee.getExperience();
 
-        email(client);
-    }        
+    const data = {
+        expectedSalary,
+        experience
+        }
+
+
+    switch(employee.type) {
+        case "manager":
+            data.portfolio = employee.getMBAProjects();
+        break;
+        case "developer":
+            data.gitHubLink = employee.getGithubLink();
+        break;
+
+        }
     });
-}
-
-function emailActiveClients(clients){
-clients.filter(isActiveClient).forEach(email)
-}
-
-function isActiveClient(client) {
-    const clientRecord = database.lookup(client);
-return clientRecord.isActive();
 }
