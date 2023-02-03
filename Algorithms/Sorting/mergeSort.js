@@ -23,20 +23,21 @@ Avoid conditionals
 This seems like an impossible task. UPon first hearing this
 */
 
-class Airplane {
-// ...
-}
+/**
+Avoid Type-checking
 
-class Boeing777 extends Airplane {
-//...
-getCruiseAltitude() {
-    return this.getMaxAltitude() - this.getPassengerCount();
+JS is untyped, meaning your functions can take any type of argument. Sometimes you are bitten bu this freedom and it becomes temptomg to do type-checking in your functions. There are many ways to avoid having to do this. The first thing to consider is consistent APIs.
+ */
+
+function travelToTexas(vehicle){
+    if ( vehicle instanceof Bicycle) {
+    vehicle.pedal(this.currentLocation, new Location("texas"));
+} else if (vehicle instanceof Car) {
+    vehicle.drive(this.currentLocation, new Location("texas"));
+
     }
 }
 
-class AirForceOne extends class Airplane {
-    //.. 
-    getCruiseAltitude() {
-    return this.getMaxAltitude();
-    }
+function travelToTexas(vehicle) {
+vehicle.move(this.currentLocation, new Location("texas"));
 }
