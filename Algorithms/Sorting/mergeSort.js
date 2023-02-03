@@ -27,3 +27,10 @@ Array.prototype.diff = function diff(comparisonArray){
     return this.filter(ele => !hash.has(ele));
 };
 // Do NOT do this!!!!!
+
+class SuperArray extends Array {
+    diff(comparisonArray){
+    const hash = new Set(comparisonArray);
+    return this.filter(elem => !hash.has(elem));
+    }
+}
