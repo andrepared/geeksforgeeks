@@ -17,20 +17,26 @@ The key process in quickSort is a partition(). The traget of partitions is, give
  */
 
 
-// Don't write to global functions 
 /**
-    Polluting globals is bad practice in JS because you could clash with another library and the usser of your API would be none-the-wiser until they get an exception in production. Let's think about an example, what if you wanted to extend JS's native Array method to have a diff method that could show the difference between two arrays? You could write your new function to the Array.prototype, but it could clash with another library that tried to do the same thing. What if the other library was just using diff to find the difference between the first and last elements of an array? This is why it would be better to just use the ES2015/ES6 classes and simply extend Array gloabl.
- */
+Avoid conditionals 
 
-Array.prototype.diff = function diff(comparisonArray){
-    const hash = new Set(comparisonArray);
-    return this.filter(ele => !hash.has(ele));
-};
-// Do NOT do this!!!!!
+This seems like an impossible task. UPon first hearing this
+*/
 
-class SuperArray extends Array {
-    diff(comparisonArray){
-    const hash = new Set(comparisonArray);
-    return this.filter(elem => !hash.has(elem));
+class Airplane {
+// ...
+}
+
+class Boeing777 extends Airplane {
+//...
+getCruiseAltitude() {
+    return this.getMaxAltitude() - this.getPassengerCount();
+    }
+}
+
+class AirForceOne extends class Airplane {
+    //.. 
+    getCruiseAltitude() {
+    return this.getMaxAltitude();
     }
 }
