@@ -15,24 +15,11 @@ Pick median as pivot
 The key process in quickSort is a partition(). The traget of partitions is, given an array and an element x of an array as the pivot, put x at its correct position in a sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) afterx. All this should be done in linear time.
 
  */
-
-const menuConfig = {
-    title: "Order",
-// User did not include "body" key
-    buttonText: "Send",
-    cancellable: true
-};
-
-function createMenu(config){
-    let finalConfig = Object.assign(
-    {
-    title: "Foo",
-    body: "Bar",
-    buttonText: "Baz",
-    cancellable: true
-
-    }, config);
-    return finalConfig;
-    // Config now equals: {title: Order, body: Bar, buttonText: Send, cancellable: true}
-    //...
+// Don't use flags as function parameters 
+function createFiles(name)
+{
+    fs.create(name);
 }
+function createTempFile(name){
+createFiles(`./temp/${name}`)
+};
