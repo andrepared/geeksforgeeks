@@ -32,12 +32,12 @@ Step-by-step approah: We basically ignore half the elements just after one compa
 /**
 Javascript program to implement recursive Binary Search. 
 
-A recursive Binary Search function, it returns location of x in given array arr[1...r] is present, otherwise -1.
+A recursive Binary Search function, it returns location of x in given array arr[l...r] is present, otherwise -1.
 
  */
-function binarySearch(arr, 1, r, x) {
-    if (r >= 1) {
-        let mid = 1 + Math.floor((r - 1) / 2);
+function binarySearch(arr, l, r, x) {
+    if (r >= l) {
+        let mid = l + Math.floor((r - 1) / 2);
     
         // If the element is present at the middle itself.
         if (arr[mid] == x)
@@ -47,7 +47,7 @@ function binarySearch(arr, 1, r, x) {
         // If element is smaller than mid, then it can only be present in the left of array.
         if (arr[mid] > x)
     
-            return binarySearch(arr, 1, mid - 1, x);
+            return binarySearch(arr, l, mid - 1, x);
     
         // Else the element could only be present in the right subarray.
         return binarySearch(arr, mid + 1, r, x);
@@ -75,11 +75,11 @@ function binarySearch2(v, To_Find)
     let low = 0;
     let high = v.length - 1;
     let mid;
-    // This checks covers all cases, so need to check for mid = lo - (high - low)/2
+    // This checks covers all cases, so need to check for mid = low - (high - low)/2
     while (high - low > 1) {
         let mid = (high + low) / 2;
         if (v[mid] < To_Find) {
-            lo = mid + 1;
+            low = mid + 1;
         }
         else {
             high = mid;
