@@ -48,3 +48,14 @@ console.log(`Employee name: ${employee.getName()}`); // Employee name undefined.
 
 // Good
 
+function makeEmployee (name) {
+    return {
+    getName() {
+        return name;
+        }
+    };
+}
+const employee = makeEmployee("John Doe");
+console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe.
+delete employee.name;
+console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe.
