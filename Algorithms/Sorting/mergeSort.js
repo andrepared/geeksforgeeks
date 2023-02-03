@@ -16,26 +16,23 @@ The key process in quickSort is a partition(). The traget of partitions is, give
 
  */
 
-function showEmployeeList(employees)
-{
-    employees.forEach(employee => {
-    const expectedSalary = employee.calculateExpectedSalary(); 
-    const experience = employee.getExperience();
+const menuConfig = {
+    title: "Order",
+// User did not include "body" key
+    buttonText: "Send",
+    cancellable: true
+};
 
-    const data = {
-        expectedSalary,
-        experience
-        }
+function createMenu(config){
+    let finalConfig = Object.assign(
+    {
+    title: "Foo",
+    body: "Bar",
+    buttonText: "Baz",
+    cancellable: true
 
-
-    switch(employee.type) {
-        case "manager":
-            data.portfolio = employee.getMBAProjects();
-        break;
-        case "developer":
-            data.gitHubLink = employee.getGithubLink();
-        break;
-
-        }
-    });
+    }, config);
+    return finalConfig;
+    // Config now equals: {title: Order, body: Bar, buttonText: Send, cancellable: true}
+    //...
 }
