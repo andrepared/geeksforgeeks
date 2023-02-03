@@ -34,3 +34,11 @@ The main point is to avoid common pitfalls like sharing state between objects wi
 
     2. Cloning big objects can be very expensive in terms of perfomance. Luckily, this isn't a big issue in practice bc there are great libraries that allow this kind of programming approah to be fast and not as memory intensive as it woulf be for you to manually clone objects and arrays.
  */
+
+function splitIntoFirstAndLastName(name){
+return name.split(" ");
+}
+const name = "Andres Garcia";
+const newName = splitIntoFirstAndLastName(name);
+
+console.log(name)
