@@ -112,7 +112,4 @@ Summary:
 
 4. It's important to not that the array to be searched must be sorted for Ternary Search to work correctly. 
 
-
-
-
  */
