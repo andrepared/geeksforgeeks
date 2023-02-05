@@ -208,12 +208,25 @@ When to use Binary Search
  */
 
 /**
-Summary
-1. " " is an efficient algorithm for finding an element within a sorted array.
-
-2. Time complexity O(n logn). 
-
-3. One if the draw backs if " " is that the array must be sorted. 
-
-4. Useful algorithm for building more complex algorithms in machine learning and computer graphics.
+This pattern is useful in JS anf you see it in many libraries such as JQuery and Lodash. It allows your code to be expressive, and less verbose. For that reason, I say, use method chaining and take a look at how clean your code will be. In your class functions, simply return this at the end of every function, and you can chain further class methods onto it.
  */
+
+class Car{
+    constructor(make, model, color) {
+        this.make = make;
+        this.model = model;
+        this.color = color;
+    }
+    setMake() {
+        this.make = make;
+    }
+    setModel() {
+        this.model = model;
+    }
+    setColor(color) {
+        this.color = color;
+    }
+    save() {
+        console.log(this.make, this.model, this.color)
+    }
+}
