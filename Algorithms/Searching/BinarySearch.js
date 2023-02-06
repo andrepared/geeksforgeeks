@@ -230,3 +230,4 @@ class Car{
         console.log(this.make, this.model, this.color)
     }
 }
+const car = new Car("Ford", "F-150", "red").setColor("pink").save();
